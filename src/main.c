@@ -1,81 +1,80 @@
+// Código principal do jogo
 #include <string.h>
 #include <stdio.h>
 #include "screen.h"
 #include "keyboard.h"
 #include "timer.h"
 
-int x = 34, y = 12;
-int incX = 1, incY = 1;
-
-void printHello(int nextX, int nextY)
-{
-    screenSetColor(CYAN, DARKGRAY);
-    screenGotoxy(x, y);
-    printf("           ");
-    x = nextX;
-    y = nextY;
-    screenGotoxy(x, y);
-    printf("Hello World");
-}
-
-void printKey(int ch)
-{
-    screenSetColor(YELLOW, DARKGRAY);
-    screenGotoxy(35, 22);
-    printf("Key code :");
-
-    screenGotoxy(34, 23);
-    printf("            ");
-    
-    if (ch == 27) screenGotoxy(36, 23);
-    else screenGotoxy(39, 23);
-
-    printf("%d ", ch);
-    while (keyhit())
-    {
-        printf("%d ", readch());
+// Função para mover o ponto com base na entrada do teclado
+void movePoint(int *x, int *y, char direction) {
+    switch (direction) {
+        case 'a':
+            if (*x > 1) // Verifica se não está na borda esquerda
+                (*x)--;
+            break;
+        case 'd':
+            if (*x < 79) // Largura da tela - 1 (80 colunas)
+                (*x)++;
+            break;
+        case 'w':
+            if (*y > 1) // Verifica se não está na borda superior
+                (*y)--;
+            break;
+        case 's':
+            if (*y < 23) // Altura da tela - 1 (24 linhas)
+                (*y)++;
+            break;
+        default:
+            break;
     }
 }
 
-int main() 
-{
-    static int ch = 0;
+int main() {
+    int x = 34, y = 12;  // Posição inicial do ponto
 
-    screenInit(1);
-    keyboardInit();
-    timerInit(50);
+    // Inicializa as bibliotecas
+    screenInit(1);   // Inicializa a tela com bordas
+    keyboardInit();  // Inicializa o teclado
+    timerInit(50);   // Inicializa o temporizador com um intervalo de 50 milissegundos
 
-    printHello(x, y);
+    // Desenha o ponto inicial na tela
+    screenSetColor(WHITE, BLACK); // Define a cor do ponto para branco
+    screenGotoxy(x, y);
+    printf("O");
+
+    // Atualiza a tela
     screenUpdate();
 
-    while (ch != 10) //enter
-    {
-        // Handle user input
-        if (keyhit()) 
-        {
-            ch = readch();
-            printKey(ch);
-            screenUpdate();
-        }
+    // Loop principal do jogo
+    while (1) {
+        // Captura a entrada do teclado
+        if (keyhit()) {
+            char key = readch();
 
-        // Update game state (move elements, verify collision, etc)
-        if (timerTimeOver() == 1)
-        {
-            int newX = x + incX;
-            if (newX >= (MAXX -strlen("Hello World") -1) || newX <= MINX+1) incX = -incX;
-            int newY = y + incY;
-            if (newY >= MAXY-1 || newY <= MINY+1) incY = -incY;
+            // Verifica se a tecla Enter foi pressionada para encerrar o programa
+            if (key == '\n') 
+                break;
 
-            printKey(ch);
-            printHello(newX, newY);
+            // Move o ponto com base na tecla pressionada
+            movePoint(&x, &y, key);
 
+            // Limpa a tela
+            screenClear();
+
+            // Desenha o ponto na nova posição
+            screenSetColor(WHITE, BLACK); // Define a cor do ponto para branco
+            screenGotoxy(x, y);
+            printf("O");
+
+            // Atualiza a tela
             screenUpdate();
         }
     }
 
-    keyboardDestroy();
-    screenDestroy();
-    timerDestroy();
+    // Finaliza as bibliotecas
+    keyboardDestroy(); // Finaliza o teclado
+    screenDestroy();   // Finaliza a tela
+    timerDestroy();    // Finaliza o temporizador
 
     return 0;
 }
