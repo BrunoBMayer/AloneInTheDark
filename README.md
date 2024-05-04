@@ -1,9 +1,7 @@
 # 👻ALONE IN THE DARK
-
-.__..                  , .         .      .  
-[__]| _ ._  _   *._   -+-|_  _    _| _.._.;_/
-|  ||(_)[ )(/,  |[ )   | [ )(/,  (_](_][  | \
-
+                                    
+ /\ | _  _  _  . _   |_|_  _   _| _  _|  
+/--\|(_)| )(-  || )  |_| )(-  (_|(_|| |(
 
 Alone in the dark é um simples jogo de labirinto às cegas. Desenvolvido como projeto para a cadeira de PIF, nesse jogo você terá que percorrer alguns labirintos e encontrar lanternas para auxiliar o próximo labirinto. O título faz uma homenagem a clássica franquia de jogos "Alone in the dark".
 
