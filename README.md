@@ -1,20 +1,17 @@
-# ALONE
-Command Line Interface library, for developing CLI applications and games in C. It has functions to access keyboard, screen and manage timing tasks.
+# 👻ALONE IN THE DARK
+  ___  _                    _         _   _                _            _    
+ / _ \| |                  (_)       | | | |              | |          | |   
+/ /_\ \ | ___  _ __   ___   _ _ __   | |_| |__   ___    __| | __ _ _ __| | __
+|  _  | |/ _ \| '_ \ / _ \ | | '_ \  | __| '_ \ / _ \  / _` |/ _` | '__| |/ /
+| | | | | (_) | | | |  __/ | | | | | | |_| | | |  __/ | (_| | (_| | |  |   < 
+\_| |_/_|\___/|_| |_|\___| |_|_| |_|  \__|_| |_|\___|  \__,_|\__,_|_|  |_|\_\
 
-## Requirements
-- This library works with the follwing OS:
-   - Linux based (Ubuntu, etc)
-   - MacOS
-- It is necessary to have GCC installed.
+Alone in the dark é um simples jogo de labirinto às cegas. Desenvolvido como projeto para a cadeira de PIF, nesse jogo você terá que percorrer alguns labirintos e encontrar lanternas para auxiliar o próximo labirinto. O título faz uma homenagem a clássica franquia de jogos "Alone in the dark".
 
-## Usage 
-The file `main.c` has an example of how to use the Keyboard, Screen nd Timer functions. 
+# 🎮COMO O JOGO FUNCIONA
+O jogador utilizará as teclas "w-a-s-d" para se locomover pelo labirinto. Inicialmente, a visão do jogador será limitada a apenas um bloco a sua frente, mas ao coletar as lanternas durante os mapas, a área de visão aumentará.
+## 🔦LANTERNAS
+Cada labirinto terá uma lanterna, se o jogador coletar todas as lanternas, o mesmo terá toda a visão do último labirinto.
 
-To build this example via command line, just switch to library root directory and type the following command:
-```
-$ gcc ./src/*.c -I./include -o cli-lib-example
-```
-
-To use this library to create your own apps, simply add source and header files to your project and compile it together with your own code, 
-replacing the main.c file to your own.
-
+#💻COMO EXECUTAR O JOGO
+#👽MEMBROS
