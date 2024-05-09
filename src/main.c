@@ -40,7 +40,7 @@ int main() {
     // Desenha o ponto inicial na tela
     screenSetColor(WHITE, BLACK); // Define a cor do ponto para branco
     screenGotoxy(x, y);
-    printf("O");
+    printf("👺");
 
     // Atualiza a tela
     screenUpdate();
@@ -64,7 +64,7 @@ int main() {
             // Desenha o ponto na nova posição
             screenSetColor(WHITE, BLACK); // Define a cor do ponto para branco
             screenGotoxy(x, y);
-            printf("O");
+            printf("👺");
 
             // Atualiza a tela
             screenUpdate();
