@@ -5,22 +5,22 @@
 #include "timer.h"
 
 // Função para mover o ponto com base na entrada do teclado
-void movePoint(int *x, int *y, char direction) {
+void movePoint(int *x, int *y, char direction, int obst[80][24]) {
     switch (direction) {
         case 'a':
-            if (*x > 1) // Verifica se não está na borda esquerda
+            if ((*x > 1) && (obst[*x-1][*y] != 1)) // Verifica se não está na borda esquerda
                 (*x)--;
             break;
         case 'd':
-            if (*x < 79) // Largura da tela - 1 (80 colunas)
+            if ((*x < 79) && (obst[*x+1][*y] != 1)) // Largura da tela - 1 (80 colunas)
                 (*x)++;
             break;
         case 'w':
-            if (*y > 1) // Verifica se não está na borda superior
+            if ((*y > 1) && (obst[*x][*y-1] != 1)) // Verifica se não está na borda superior
                 (*y)--;
             break;
         case 's':
-            if (*y < 23) // Altura da tela - 1 (24 linhas)
+            if ((*y < 23) && (obst[*x][*y+1] != 1)) // Altura da tela - 1 (24 linhas)
                 (*y)++;
             break;
         default:
@@ -28,7 +28,45 @@ void movePoint(int *x, int *y, char direction) {
     }
 }
 
+int obst[80][24];
+
+void print_obst(int obst[80][24]){
+
+    for(int i = 0; i < 80; i++){
+        for(int j = 0; j < 24; j++){
+            
+            screenGotoxy(i,j);
+
+            if (obst[i][j] == 1){
+
+                screenSetColor(WHITE, BLACK);
+                printf("▢");
+
+            }else if (obst[i][j] == 0){
+
+                printf(" ");
+
+            }
+        }
+    }
+
+}
+
 int main() {
+
+    for(int i = 0; i < 80; i++){
+        for(int j = 0; j < 24; j++){
+
+            obst[i][j] = 0;
+        }
+    }
+
+    obst[20][10] = 1;
+    obst[20][11] = 1;
+    obst[20][12] = 1;
+    obst[20][13] = 1;
+    obst[20][14] = 1;
+
     int x = 34, y = 12;  // Posição inicial do ponto
 
     // Inicializa as bibliotecas
@@ -39,7 +77,7 @@ int main() {
     // Desenha o ponto inicial na tela
     screenSetColor(WHITE, BLACK); // Define a cor do ponto para branco
     screenGotoxy(x, y);
-    printf("👺");
+    printf("0");
 
     // Atualiza a tela
     screenUpdate();
@@ -69,15 +107,17 @@ int main() {
             }
 
             // Move o ponto com base na tecla pressionada
-            movePoint(&x, &y, key);
+            movePoint(&x, &y, key, obst);
 
             // Limpa a tela
             screenClear();
 
+            print_obst(obst);
+
             // Desenha o ponto na nova posição
             screenSetColor(WHITE, BLACK); // Define a cor do ponto para branco
             screenGotoxy(x, y);
-            printf("👺");
+            printf("0");
 
             // Atualiza a tela
             screenUpdate();
