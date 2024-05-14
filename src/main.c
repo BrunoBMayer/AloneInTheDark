@@ -61,11 +61,33 @@ int main() {
         }
     }
 
-    obst[20][10] = 1;
-    obst[20][11] = 1;
-    obst[20][12] = 1;
-    obst[20][13] = 1;
-    obst[20][14] = 1;
+
+    // Mapa do primeiro labirinto
+
+    obst[1][1] = 1;
+    obst[1][2] = 1;
+    obst[1][3] = 1;
+    obst[1][4] = 1;
+    obst[1][5] = 1;
+    obst[1][6] = 1;
+    obst[1][7] = 1;
+    obst[1][8] = 1;
+    obst[1][9] = 1;
+    obst[1][10] = 1;
+    obst[1][11] = 1;
+    obst[1][12] = 1;
+    obst[1][13] = 1;
+    obst[1][14] = 1;
+    obst[1][15] = 1;
+    obst[1][16] = 1;
+    obst[1][17] = 1;
+    obst[1][18] = 1;
+    obst[1][19] = 1;
+    obst[1][20] = 1;
+    obst[1][21] = 1;
+    obst[1][22] = 1;
+    obst[1][23] = 1;
+    obst[1][24] = 1;
 
     int x = 34, y = 12;  // Posição inicial do ponto
 
@@ -90,7 +112,8 @@ int main() {
 
             // Verifica se a tecla Enter foi pressionada para encerrar o programa
             if (key == '\n') {
-                system("clear");
+                screenDestroy();
+
                 
                 printf("\n.d888 d8b                          888                  d8b                                     88b.   \n");
                 printf("d88P\"  Y8P                         888                  Y8P                                     \"Y88b  \n");
