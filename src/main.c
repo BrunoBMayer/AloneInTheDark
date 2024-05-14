@@ -52,6 +52,8 @@ int main() {
 
             // Verifica se a tecla Enter foi pressionada para encerrar o programa
             if (key == '\n') {
+                system("clear");
+                
                 printf("\n.d888 d8b                          888                  d8b                                     88b.   \n");
                 printf("d88P\"  Y8P                         888                  Y8P                                     \"Y88b  \n");
                 printf("888                                888                                                            Y88b \n");
