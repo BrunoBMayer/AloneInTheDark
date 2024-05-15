@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include "screen.h"
 #include "keyboard.h"
@@ -11,11 +12,11 @@ int obst[80][24];
 
 void print_obst(int obst[80][24]);
 
-void tela_inicial();
+int tela_inicial();
 
 int main() {
 
-    void tela_inicial();
+    tela_inicial();
 
     for(int i = 0; i < 80; i++){
         for(int j = 0; j < 24; j++){
@@ -76,7 +77,7 @@ for (int i = 4; i <= 79; i++) {
             char key = readch();
 
             // Verifica se a tecla Enter foi pressionada para encerrar o programa
-            if (key == '\n') {
+            if (key == ' ') {
                 screenDestroy();
 
                 
@@ -167,7 +168,7 @@ void print_obst(int obst[80][24]){
 
 }
 
-void tela_inicial(){
+int tela_inicial(){
 
     int var;
     while(var != 1){
@@ -185,7 +186,7 @@ void tela_inicial(){
         scanf("%d", &var);
         
         if(var == 2){
-            system("clear");
+            screenDestroy();
             printf("_________                               ____.                                 __   \n");
             printf("\\_   ___ \\  ____   _____   ____        |    | ____   _________ _______    /\\  \\ \\  \n");
             printf("/    \\  \\/ /  _ \\ /     \\ /  _ \\       |    |/  _ \\ / ___\\__  \\\\__  __ \\   \\/   \\ \\ \n");
@@ -208,7 +209,8 @@ void tela_inicial(){
         }
 
         if(var == 3){
-
+            
+            screenDestroy();
             printf("\n");
             printf("1 - Iniciar o jogo\n");
             printf("2 - Como jogar\n");
@@ -220,7 +222,8 @@ void tela_inicial(){
         }
 
         if(var == 0){
-
+            
+            screenDestroy();
             printf("       .__                          .__            __  .__                  .___             __    \n");
             printf("_____  |  |   ____   ____   ____    |__| ____    _/  |_|  |__   ____      __| _/____ _______|  | __\n");
             printf("\\__  \\ |  |  /  _ \\ /    \\_/ __ \\   |  |/    \\   \\   __\\  |  \\_/ __ \\    / __ |\\__  \\\\_  __ \\  |/ /\n");
@@ -237,5 +240,5 @@ void tela_inicial(){
         }
     }
 
-    return;
+    return 0;
 }
