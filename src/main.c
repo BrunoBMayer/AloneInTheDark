@@ -91,21 +91,15 @@ obst[10][19] = 1;
             char key = readch();
 
             // Verifica se a tecla Enter foi pressionada para encerrar o programa
-            if (key == ' ') {
+            if (key == '\n') {
                 screenDestroy();
 
-                
-                printf("\n.d888 d8b                          888                  d8b                                     88b.   \n");
-                printf("d88P\"  Y8P                         888                  Y8P                                     \"Y88b  \n");
-                printf("888                                888                                                            Y88b \n");
-                printf("888888 888 88888b.d88b.        .d88888  .d88b.         8888  .d88b.   .d88b.   .d88b.       d8b    888 \n");
-                printf("888    888 888 \"888 \"88b      d88\" 888 d8P  Y8b        \"888 d88\"\"88b d88P\"88b d88\"\"88b      Y8P    888 \n");
-                printf("888    888 888  888  888      888  888 88888888         888 888  888 888  888 888  888            d88P \n");
-                printf("888    888 888  888  888      Y88b 888 Y8b.             888 Y88..88P Y88b 888 Y88..88P      d8b .d88P  \n");
-                printf("888    888 888  888  888       \"Y88888  \"Y8888          888  \"Y88P\"   \"Y88888  \"Y88P\"       Y8P 88P\"   \n");
-                printf("                                                        888               888                          \n");
-                printf("                                                       d88P          Y8b d88P                          \n");
-                printf("                                                     888P\"            \"Y88P\"                          \n");
+                printf("  _____.__               .___             __                            ___    \n");
+                printf("_/ ____\\__| _____      __| _/____        |__| ____   ____   ____    /\\  \\  \\   \n");
+                printf("\\   __\\|  |/     \\    / __ |/ __ \\       |  |/  _ \\ / ___\\ /  _ \\   \\/   \\  \\  \n");
+                printf(" |  |  |  |  Y Y  \\  / /_/ \\  ___/       |  (  <_> ) /_/  >  <_> )  /\\    )  ) \n");
+                printf(" |__|  |__|__|_|  /  \\____ |\\___  >  /\\__|  |\\____/\\___  / \\____/   \\/   /  /  \n");
+                printf("                \\/        \\/    \\/   \\______|     /_____/               /__/   \n");
 
                 sleep(4); // Atraso de 4 segundos
                 break;
