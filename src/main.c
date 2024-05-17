@@ -668,19 +668,19 @@ void print_obst(int obst[80][24], int *x, int *y){
             
             screenGotoxy(i,j);
 
-            if ((obst[i][j] == 1) && (obst[i][j] == ((obst[*x-1][*y]) || (obst[*x+1][*y]) || (obst[*x][*y-1]) || (obst[*x][*y+1]) || (obst[*x-1][*y-1]) || (obst[*x-1][*y+1]) || (obst[*x+1][*y-1]) || (obst[*x-1][*y+1])))){
+            if (abs(i - *x) <= 2 && abs(j - *y) <= 2) {
+                screenGotoxy(i, j);
 
-                screenSetColor(WHITE, BLACK);
-                printf("⚜️");
-
-            }else if (obst[i][j] == 0){
-
-                printf(" ");
-
+                // Verifica se a célula atual é um obstáculo
+                if (obst[i][j] == 1) {
+                    screenSetColor(WHITE, BLACK);
+                    printf("⚜️");
+                } else {
+                    printf(" ");
+                }
             }
         }
     }
-
 }
 
 int tela_inicial(){
