@@ -21,6 +21,8 @@ int main() {
     tela_inicial();
     screenGotoxy(1, 1);
     printf("Fase 1: Maze of the Lost");
+    screenGotoxy(50, 1);
+    printf("500");
 
     for(int i = 0; i < 80; i++){
         for(int j = 0; j < 24; j++){
@@ -608,6 +610,7 @@ obst[3][15] = 1;
 
 
     int x = 34, y = 14;  // Posição inicial do ponto
+    int cont = 0, contTimer = 500;
 
     // Inicializa as bibliotecas
     screenInit(1);   // Inicializa a tela com bordas
@@ -624,6 +627,7 @@ obst[3][15] = 1;
 
     // Loop principal do jogo
     while (1) {
+        cont += 1;
         // Captura a entrada do teclado
         if (keyhit()) {
             char key = readch();
@@ -650,6 +654,8 @@ obst[3][15] = 1;
             screenClear();
 
             print_obst(obst, &x, &y);
+            screenGotoxy(50, 1);
+            printf("%d", contTimer);
 
             // Desenha o ponto na nova posição
             screenSetColor(WHITE, BLACK); // Define a cor do ponto para branco
@@ -658,6 +664,13 @@ obst[3][15] = 1;
 
             // Atualiza a tela
             screenUpdate();
+        }
+
+        if(cont == 50){
+
+            contTimer--;
+            cont = 0;
+
         }
     }
 
