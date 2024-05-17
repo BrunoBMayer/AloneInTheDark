@@ -5,12 +5,13 @@
 #include "keyboard.h"
 #include "timer.h"
 
+
 // Função para mover o ponto com base na entrada do teclado
 void movePoint(int *x, int *y, char direction, int obst[80][24]);
 
 int obst[80][24];
 
-void print_obst(int obst[80][24]);
+void print_obst(int obst[80][24], int *x, int *y);
 
 int tela_inicial();
 
@@ -575,7 +576,7 @@ obst[3][15] = 1;
     
 
 
-    int x = 34, y = 12;  // Posição inicial do ponto
+    int x = 34, y = 14;  // Posição inicial do ponto
 
     // Inicializa as bibliotecas
     screenInit(1);   // Inicializa a tela com bordas
@@ -617,7 +618,7 @@ obst[3][15] = 1;
             // Limpa a tela
             screenClear();
 
-            print_obst(obst);
+            print_obst(obst, &x, &y);
 
             // Desenha o ponto na nova posição
             screenSetColor(WHITE, BLACK); // Define a cor do ponto para branco
@@ -660,14 +661,14 @@ void movePoint(int *x, int *y, char direction, int obst[80][24]) {
     }
 }
 
-void print_obst(int obst[80][24]){
+void print_obst(int obst[80][24], int *x, int *y){
 
     for(int i = 0; i < 80; i++){
         for(int j = 0; j < 24; j++){
             
             screenGotoxy(i,j);
 
-            if (obst[i][j] == 1){
+            if ((obst[i][j] == 1) && (obst[i][j] == ((obst[*x-1][*y]) || (obst[*x+1][*y]) || (obst[*x][*y-1]) || (obst[*x][*y+1]) || (obst[*x-1][*y-1]) || (obst[*x-1][*y+1]) || (obst[*x+1][*y-1]) || (obst[*x-1][*y+1])))){
 
                 screenSetColor(WHITE, BLACK);
                 printf("⚜️");
