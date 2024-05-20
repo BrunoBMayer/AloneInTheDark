@@ -745,10 +745,10 @@ int tela_inicial(){
             printf(" \\______  /\\____/|__|_|  /\\____/   \\________|\\____/\\___  (____  /__|      \\/  /_/  \n");
             printf("        \\/             \\/                         /_____/     \\/                    \n");
             printf("\n");
-            printf("Utilize as teclas W-A-S-D para mover o personagem pelos labiritnos.\n");
-            printf("Procure as lanternas para aumentar a área de visão do personagem.\n");
-            printf("O contador ficará rodando durante cada labirinto, seu tempo refletirá na sua pontuação.\n");
-            printf("Importante: Se a contagem chegar em 0 você perdeu o jogo :(.\n");
+            printf("▪️ Utilize as teclas W-A-S-D para mover o personagem pelos labiritnos.\n");
+            printf("▪️ Procure as lanternas para aumentar a área de visão do personagem.\n");
+            printf("▪️ O contador ficará rodando durante cada labirinto, seu tempo refletirá na sua pontuação.\n");
+            printf("⚠️ Importante: Se a contagem chegar em 0 você perdeu o jogo. :(\n");
             printf("Dica: Coletar todas as lanternas deixará o campo de visão no máximo nos últimos labirintos.\n");
             printf("\n");
             printf("1 - Iniciar o jogo\n");
