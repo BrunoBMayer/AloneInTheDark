@@ -753,8 +753,8 @@ int tela_inicial(){
             printf("\n");
             printf("1 - Iniciar o jogo\n");
             printf("2 - Como jogar\n");
-            printf("3 - Pontuações salvas\n\n");
-            printf("0 - Voltar para a tela inicial");
+            printf("3 - Pontuações salvas\n");
+            printf("0 - Voltar para a tela inicial\n\n");
             printf("Digite a opção: ");
             scanf("%d", &var);
         }
@@ -765,8 +765,8 @@ int tela_inicial(){
             printf("\n");
             printf("1 - Iniciar o jogo\n");
             printf("2 - Como jogar\n");
-            printf("3 - Pontuações salvas\n\n");
-            printf("0 - Voltar para a tela inicial");
+            printf("3 - Pontuações salvas\n");
+            printf("0 - Voltar para a tela inicial\n\n");
             printf("Digite a opção: ");
             scanf("%d", &var);
 
