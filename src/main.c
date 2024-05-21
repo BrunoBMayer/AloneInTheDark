@@ -646,6 +646,15 @@ obst[3][15] = 1;
             // Move o ponto com base na tecla pressionada
             movePoint(&x, &y, key, obst);
 
+            if (x == 1 && y == 1) {
+            screenClear();
+            screenGotoxy(30, 12);
+            printf("Parabéns! Você conseguiu sair do labirinto!");
+            screenUpdate();
+            sleep(2); // Atraso de 2 segundos
+            break;
+        }
+
             // Limpa a tela
             screenClear();
 
