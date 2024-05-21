@@ -607,7 +607,7 @@ obst[3][15] = 1;
     
 
 
-    int x = 34, y = 14;  // Posição inicial do ponto
+    int x = 34, y = 14, timer = 0, contM = 5, contS = 0;  // Posição inicial do ponto
 
     // Inicializa as bibliotecas
     screenInit(1);   // Inicializa a tela com bordas
@@ -669,6 +669,37 @@ obst[3][15] = 1;
             // Atualiza a tela
             screenUpdate();
         }
+
+        if(timerTimeOver()){
+
+            timer += 50;
+
+        }
+
+        if (timer == 1000){
+
+            screenGotoxy(50,1);
+            contS--;
+            if(contM >= 0 && contS < 0){
+                
+                contS = 59;
+                contM--;
+                printf("0%d:%d", contM, contS);
+
+            }else if(contM >= 0 && contS < 10){
+
+                printf("0%d:0%d", contM, contS);
+
+            }else if(contM < 0){
+
+                printf("RUN");
+
+            }
+
+            screenUpdate();
+
+        }
+
     }
 
     // Finaliza as bibliotecas
