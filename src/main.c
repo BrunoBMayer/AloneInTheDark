@@ -5,6 +5,12 @@
 #include "keyboard.h"
 #include "timer.h"
 
+struct node{
+
+    int coordenadas[80][24];
+    struct node * next;
+
+};
 
 // Função para mover o ponto com base na entrada do teclado
 void movePoint(int *x, int *y, char direction, int obst[80][24]);
@@ -25,6 +31,11 @@ int main() {
 
     screenGotoxy(1, 1);
     printf("Fase 1: Maze of the Lost");
+
+    struct node * head;
+    struct node * temp;
+    head = (struct node *)malloc(sizeof(struct node));
+    temp = head;
 
 
     for(int i = 0; i < 80; i++){
