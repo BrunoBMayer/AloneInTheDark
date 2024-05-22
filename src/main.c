@@ -17,8 +17,12 @@ int tela_inicial();
 
 int main() {
 
+    if(tela_inicial() == 1){
 
-    tela_inicial();
+        return 0;
+
+    }
+
     screenGotoxy(1, 1);
     printf("Fase 1: Maze of the Lost");
 
@@ -761,20 +765,24 @@ void print_obst(int obst[80][24], int *x, int *y){
 int tela_inicial(){
 
     int var;
+
+    printf("       .__                          .__            __  .__                  .___             __    \n");
+    printf("_____  |  |   ____   ____   ____    |__| ____    _/  |_|  |__   ____      __| _/____ _______|  | __\n");
+    printf("\\__  \\ |  |  /  _ \\ /    \\_/ __ \\   |  |/    \\   \\   __\\  |  \\_/ __ \\    / __ |\\__  \\\\_  __ \\  |/ /\n");
+    printf(" / __ \\|  |_(  <_> )   |  \\  ___/   |  |   |  \\   |  | |   Y  \\  ___/   / /_/ | / __ \\|  | \\/    < \n");
+    printf("(____  /____/\\____/|___|  /\\___  >  |__|___|  /   |__| |___|  /\\___  >  \\____ |(____  /__|  |__|_ \\\n");
+    printf("     \\/                 \\/     \\/           \\/              \\/     \\/        \\/     \\/           \\/\n");
+    printf("\n");
+    printf("1 - Iniciar o jogo\n");
+    printf("2 - Como jogar\n");
+    printf("3 - Pontuações salvas\n");
+    printf("4 - Sair do jogo\n\n");
+
+    printf("Digite a opção: ");
+    scanf("%d", &var);
+
     while(var != 1){
         screenDestroy();
-        printf("       .__                          .__            __  .__                  .___             __    \n");
-        printf("_____  |  |   ____   ____   ____    |__| ____    _/  |_|  |__   ____      __| _/____ _______|  | __\n");
-        printf("\\__  \\ |  |  /  _ \\ /    \\_/ __ \\   |  |/    \\   \\   __\\  |  \\_/ __ \\    / __ |\\__  \\\\_  __ \\  |/ /\n");
-        printf(" / __ \\|  |_(  <_> )   |  \\  ___/   |  |   |  \\   |  | |   Y  \\  ___/   / /_/ | / __ \\|  | \\/    < \n");
-        printf("(____  /____/\\____/|___|  /\\___  >  |__|___|  /   |__| |___|  /\\___  >  \\____ |(____  /__|  |__|_ \\\n");
-        printf("     \\/                 \\/     \\/           \\/              \\/     \\/        \\/     \\/           \\/\n");
-        printf("\n");
-        printf("1 - Iniciar o jogo\n");
-        printf("2 - Como jogar\n");
-        printf("3 - Pontuações salvas\n\n");
-        printf("Digite a opção: ");
-        scanf("%d", &var);
         
         if(var == 2){
             screenDestroy();
@@ -792,8 +800,8 @@ int tela_inicial(){
             printf("Dica: Coletar todas as lanternas deixará o campo de visão no máximo nos últimos labirintos.\n");
             printf("\n");
             printf("1 - Iniciar o jogo\n");
-            printf("2 - Como jogar\n");
             printf("3 - Pontuações salvas\n");
+            printf("4 - Sair do jogo\n");
             printf("0 - Voltar para a tela inicial\n\n");
             printf("Digite a opção: ");
             scanf("%d", &var);
@@ -805,7 +813,7 @@ int tela_inicial(){
             printf("\n");
             printf("1 - Iniciar o jogo\n");
             printf("2 - Como jogar\n");
-            printf("3 - Pontuações salvas\n");
+            printf("4 - Sair do jogo\n");
             printf("0 - Voltar para a tela inicial\n\n");
             printf("Digite a opção: ");
             scanf("%d", &var);
@@ -824,9 +832,18 @@ int tela_inicial(){
             printf("\n");
             printf("1 - Iniciar o jogo\n");
             printf("2 - Como jogar\n");
-            printf("3 - Pontuações salvas\n\n");
+            printf("3 - Pontuações salvas\n");
+            printf("4 - Sair do jogo\n");
             printf("Digite a opção: ");
             scanf("%d", &var);
+
+        }
+
+        if (var == 4){
+            
+
+            return 1;
+            
 
         }
     }
