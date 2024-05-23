@@ -684,7 +684,7 @@ obst[3][15] = 1;
             screenGotoxy(50,1);
             printf("%2d:%2d", contM, contS);
             if(contM < 0){
-                printf("RUN");
+                break;
             }
             // Atualiza a tela
             screenUpdate();
