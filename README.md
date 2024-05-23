@@ -10,10 +10,11 @@ O jogo rodará apenas em um terminal linux. Caso não tenha uma máquina com lin
 - 1 - Clone o repositório:
   <div style="display: flex; align-items: center;">
   <pre style="margin: 0; padding: 0.5em; background: #f0f0f0; border: 1px solid #ddd; border-radius: 5px;">
-    <code id="repo-url">https://github.com/BrunoBMayer/AloneInTheDark.git</code>
+    <code id="repo-url">git clone https://github.com/BrunoBMayer/AloneInTheDark.git</code>
   </pre>
   <button onclick="copyToClipboard('repo-url')"></button
 </div>
+
   
 - 2 - Compile o programa:
   <div style="display: flex; align-items: center;">
@@ -22,6 +23,7 @@ O jogo rodará apenas em um terminal linux. Caso não tenha uma máquina com lin
   </pre>
   <button onclick="copyToClipboard('make-command')"></button>
 </div>
+
   
 - 3 - Execute o programa:
   <div style="display: flex; align-items: center;">
@@ -30,6 +32,7 @@ O jogo rodará apenas em um terminal linux. Caso não tenha uma máquina com lin
   </pre>
   <button onclick="copyToClipboard('run-command')"></button>
 </div>
+
   
 - 4 - Fuja do labirinto a tempo!! 😈
 
