@@ -622,7 +622,7 @@ obst[3][15] = 1;
     
 
 
-    int x = 34, y = 14, timer = 0, contM = 5, contS = 0;  // Posição inicial do ponto
+    int x = 34, y = 14, timer = 0, contM = 4, contS = 15;  // Posição inicial do ponto
 
     // Inicializa as bibliotecas
     screenInit(1);   // Inicializa a tela com bordas
@@ -674,7 +674,7 @@ obst[3][15] = 1;
                 screenGotoxy(30, 13);
                 printf("Coloque o seu nome: ");
                 screenGotoxy(30, 14);
-                scanf("%s", str[501]);
+                scanf("%s", str);
                 
                 if(contM < 0){
 
@@ -705,18 +705,28 @@ obst[3][15] = 1;
             screenGotoxy(x, y);
             printf("♟️");
 
-            screenGotoxy(50,1);
-            printf("%2d:%2d", contM, contS);
-            if(contM < 0){
+            screenGotoxy(60,1);
+            if(contM > 0 && contS < 10){
+
+                printf("0%d:0%d", contM, contS);
+
+            }else if(contM > 0 && contS >= 10){
+
+                printf("0%d:%d", contM, contS);
+
+            }else if(contM < 0){
 
                 screenDestroy();
-                screenInit(1);
                 printf("  ___                         ___                     \n");
                 printf(" /  __/__    __   __    \\__  \\_  _ ____ \n");
                 printf("/   \\  _\\_  \\  /     \\/ _ \\    /   |   \\  \\/ // _ \\_  __ \\\n");
                 printf("\\    \\\\  \\/ _ \\|  Y Y  \\  _/   /    |    \\   /\\  _/|  | \\/\n");
                 printf(" \\__  (__  /_||  /\\_  >  \\___  /\\/  \\_  >_|   \n");
                 printf("        \\/     \\/      \\/     \\/           \\/          \\/       \n");
+                printf("1 - Tentar de novo ");
+                printf("2 - Voltar para o menu");
+
+
                 sleep(4);
                 break;
             }
