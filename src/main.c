@@ -662,13 +662,37 @@ obst[3][15] = 1;
             movePoint(&x, &y, key, obst);
 
             if (x == 3 && y == 3 || x == 2 && y == 3) {
-            screenClear();
-            screenGotoxy(30, 12);
-            printf("Parabéns! Você conseguiu sair do labirinto!");
-            screenUpdate();
-            sleep(5); // Atraso de 2 segundos
-            break;
-        }
+                FILE * rank;
+                char str[501];
+                int pont;
+
+                screenClear();
+                screenGotoxy(30, 12);
+                printf("Parabéns! Você conseguiu sair do labirinto!");
+                screenUpdate();
+                rank = fopen("RANKING.txt", "r+");
+                screenGotoxy(30, 13);
+                printf("Coloque o seu nome: ");
+                screenGotoxy(30, 14);
+                scanf("%s", str[501]);
+                
+                if(contM < 0){
+
+                    pont = 0;
+
+                }else if(contM > 0){
+
+                    pont = (contM * 60) + contS;
+
+                }
+
+                fseek(rank, 0, SEEK_END);
+                fprintf(rank, "%s\t\t%d\n", str, pont);
+                fclose(rank);
+
+                sleep(5); // Atraso de 2 segundos
+                break;
+            }
         }
         if(timerTimeOver()){
             // Limpa a tela
@@ -819,9 +843,19 @@ int tela_inicial(){
         }
 
         if(var == 3){
-            
+            FILE * rank;
+            char str[601];
             screenDestroy();
+            
+            printf("----RANKING----\n");
+            while(fgets(str, sizeof(str), rank) != NULL){
+                
+                printf("%s", str);
+
+            }
+
             printf("\n");
+            fclose(rank);
             printf("1 - Iniciar o jogo\n");
             printf("2 - Como jogar\n");
             printf("4 - Sair do jogo\n");
