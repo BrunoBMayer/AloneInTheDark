@@ -684,6 +684,16 @@ obst[3][15] = 1;
             screenGotoxy(50,1);
             printf("%2d:%2d", contM, contS);
             if(contM < 0){
+
+                screenDestroy();
+                screenInit(1);
+                printf("  ___                         ___                     \n");
+                printf(" /  __/__    __   __    \\__  \\_  _ ____ \n");
+                printf("/   \\  _\\_  \\  /     \\/ _ \\    /   |   \\  \\/ // _ \\_  __ \\\n");
+                printf("\\    \\\\  \\/ _ \\|  Y Y  \\  _/   /    |    \\   /\\  _/|  | \\/\n");
+                printf(" \\__  (__  /_||  /\\_  >  \\___  /\\/  \\_  >_|   \n");
+                printf("        \\/     \\/      \\/     \\/           \\/          \\/       \n");
+                sleep(4);
                 break;
             }
             // Atualiza a tela
