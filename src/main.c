@@ -32,10 +32,9 @@ int main() {
     screenGotoxy(1, 1);
     printf("Fase 1: Maze of the Lost");
 
-    struct node * head;
-    struct node * temp;
-    head = (struct node *)malloc(sizeof(struct node));
-    temp = head;
+    screenGotoxy(54, 1);
+    printf("Tempo ");
+
 
 
     for(int i = 0; i < 80; i++){
@@ -622,7 +621,7 @@ obst[3][15] = 1;
     
 
 
-    int x = 34, y = 14, timer = 0, contM = 4, contS = 15;  // Posição inicial do ponto
+    int x = 34, y = 14, timer = 0, contM = 5, contS = 0;  // Posição inicial do ponto
 
     // Inicializa as bibliotecas
     screenInit(1);   // Inicializa a tela com bordas
@@ -715,6 +714,7 @@ obst[3][15] = 1;
                 printf("0%d:%d", contM, contS);
 
             }else if(contM < 0){
+                int var2;
 
                 screenDestroy();
                 printf("  ___                         ___                     \n");
@@ -723,12 +723,43 @@ obst[3][15] = 1;
                 printf("\\    \\\\  \\/ _ \\|  Y Y  \\  _/   /    |    \\   /\\  _/|  | \\/\n");
                 printf(" \\__  (__  /_||  /\\_  >  \\___  /\\/  \\_  >_|   \n");
                 printf("        \\/     \\/      \\/     \\/           \\/          \\/       \n");
-                printf("1 - Tentar de novo ");
-                printf("2 - Voltar para o menu");
+                printf("1 - Tentar de novo \n");
+                printf("2 - Voltar para o menu\n");
+                printf("3 - Sair do jogo\n");
+
+                printf("Digite a opção: ");
+                scanf("%d", &var2);
+
+                while(var2 != 1){
+                    screenDestroy();
+
+                    if (var2 == 2){
 
 
-                sleep(4);
-                break;
+                        
+
+
+
+                    }
+
+
+
+
+
+
+
+
+
+                }
+
+                x = 34;
+                y = 14;
+                screenSetColor(WHITE, BLACK); // Define a cor do ponto para branco
+                screenGotoxy(x, y);
+                printf("♟️");
+
+                
+
             }
             // Atualiza a tela
             screenUpdate();
@@ -786,6 +817,10 @@ void print_obst(int obst[80][24], int *x, int *y){
 
     screenGotoxy(1, 1);
     printf("Fase 1: Maze of the Lost");
+
+    screenGotoxy(54, 1);
+    printf("Tempo ");
+
 
     for(int i = 0; i < 80; i++){
         for(int j = 0; j < 24; j++){
