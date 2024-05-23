@@ -621,7 +621,7 @@ obst[3][15] = 1;
     
 
 
-    int x = 34, y = 14, timer = 0, contM = 0, contS = 15;  // Posição inicial do ponto
+    int x = 34, y = 14, timer = 0, contM = 5, contS = 0;  // Posição inicial do ponto
 
     // Inicializa as bibliotecas
     screenInit(1);   // Inicializa a tela com bordas
@@ -666,10 +666,11 @@ obst[3][15] = 1;
                 int pont;
 
                 screenClear();
+                sleep(1);
                 screenGotoxy(30, 12);
                 printf("Parabéns! Você conseguiu sair do labirinto!");
                 screenUpdate();
-                rank = fopen("RANKING.txt", "r+");
+                rank = fopen("/home/linux/Área de Trabalho/Projeto PIF/AloneInTheDark/RANKING.txt", "a");
                 screenGotoxy(30, 13);
                 printf("Coloque o seu nome: ");
                 screenGotoxy(30, 14);
@@ -689,7 +690,7 @@ obst[3][15] = 1;
                 fprintf(rank, "%s\t\t%d\n", str, pont);
                 fclose(rank);
 
-                sleep(5); // Atraso de 2 segundos
+                sleep(1); // Atraso de 2 segundos
                 break;
             }
         }
@@ -858,8 +859,10 @@ int tela_inicial(){
             FILE * rank;
             char str[601];
             screenDestroy();
+
+            rank = fopen("/home/linux/Área de Trabalho/Projeto PIF/AloneInTheDark/RANKING.txt", "r"); //SE QUISER RODAR NO SEU PC COLOQUE O CAMINHO DE RANKING!!!!
             
-            printf("----RANKING----\n");
+            printf("----RANKING----\n\n");
             while(fgets(str, sizeof(str), rank) != NULL){
                 
                 printf("%s", str);
