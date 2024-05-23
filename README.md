@@ -6,9 +6,13 @@ Você é Jonas, um autor de ficção científica, que misteriosamente acorda den
 
 # 💻COMO EXECUTAR O JOGO
 O jogo rodará apenas em um terminal linux. Caso não tenha uma máquina com linux, use o replit.
-1 - Clone o repositório. 'https://github.com/BrunoBMayer/AloneInTheDark.git'
-2 - Compile o programa. 'make'
-3 - Execute o programa. './alone'
+1 - Clone o repositório: 'https://github.com/BrunoBMayer/AloneInTheDark.git'
+
+2 - Compile o programa: 'make'
+
+3 - Execute o programa: './alone'
+
+4 - Fuja do labirinto a tempo!! 😈
 
 # 🎮COMO O JOGO FUNCIONA
 O jogador utilizará as teclas "w-a-s-d" para se locomover pelo labirinto. O tempo limite é de 5 minutos. Seu tempo será salvo em um ranking local de pontuações.
