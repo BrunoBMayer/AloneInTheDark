@@ -669,50 +669,40 @@ obst[3][15] = 1;
             sleep(5); // Atraso de 2 segundos
             break;
         }
-
+        }
+        if(timerTimeOver()){
             // Limpa a tela
             screenClear();
 
             print_obst(obst, &x, &y);
-            screenGotoxy(50, 1);
 
             // Desenha o ponto na nova posição
             screenSetColor(WHITE, BLACK); // Define a cor do ponto para branco
             screenGotoxy(x, y);
             printf("♟️");
 
+            screenGotoxy(50,1);
+            printf("%2d:%2d", contM, contS);
+            if(contM < 0){
+                printf("RUN");
+            }
             // Atualiza a tela
             screenUpdate();
-        }
+        
 
-        if(timerTimeOver()){
 
             timer += 50;
 
         }
 
-        if (timer == 1000){
-
-            screenGotoxy(50,1);
-            contS--;
-            if(contM >= 0 && contS < 0){
+        if (timer >= 1000){
+            if(contM >= 0 && contS <= 0){
                 
-                contS = 59;
+                contS = 60;
                 contM--;
-                printf("0%d:%d", contM, contS);
-
-            }else if(contM >= 0 && contS < 10){
-
-                printf("0%d:0%d", contM, contS);
-
-            }else if(contM < 0){
-
-                printf("RUN");
-
             }
-
-            screenUpdate();
-
+            contS--;
+            timer = 0;
         }
 
     }
