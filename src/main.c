@@ -621,7 +621,7 @@ obst[3][15] = 1;
     
 
 
-    int x = 34, y = 14, timer = 0, contM = 5, contS = 0;  // Posição inicial do ponto
+    int x = 34, y = 14, timer = 0, contM = 0, contS = 15;  // Posição inicial do ponto
 
     // Inicializa as bibliotecas
     screenInit(1);   // Inicializa a tela com bordas
@@ -723,41 +723,8 @@ obst[3][15] = 1;
                 printf("\\    \\\\  \\/ _ \\|  Y Y  \\  _/   /    |    \\   /\\  _/|  | \\/\n");
                 printf(" \\__  (__  /_||  /\\_  >  \\___  /\\/  \\_  >_|   \n");
                 printf("        \\/     \\/      \\/     \\/           \\/          \\/       \n");
-                printf("1 - Tentar de novo \n");
-                printf("2 - Voltar para o menu\n");
-                printf("3 - Sair do jogo\n");
-
-                printf("Digite a opção: ");
-                scanf("%d", &var2);
-
-                while(var2 != 1){
-                    screenDestroy();
-
-                    if (var2 == 2){
-
-
-                        
-
-
-
-                    }
-
-
-
-
-
-
-
-
-
-                }
-
-                x = 34;
-                y = 14;
-                screenSetColor(WHITE, BLACK); // Define a cor do ponto para branco
-                screenGotoxy(x, y);
-                printf("♟️");
-
+                sleep(3);
+                break;
                 
 
             }
