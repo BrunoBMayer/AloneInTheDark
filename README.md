@@ -55,9 +55,33 @@ O jogador utilizará as teclas "w-a-s-d" para se locomover pelo labirinto. O tem
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/BrunoBMayer"><img src="https://avatars.githubusercontent.com/BrunoBMayer" width="100px;" alt="foto de brunao"/><br><sub><b>Bruno Mayer</b><br><b>✉️bbm@cesar.school</b></sub></a></td>
-    <td align="center"><a href="https://github.com/lovepxdro"><img src="https://avatars.githubusercontent.com/lovepxdro" width="100px;" alt="foto de pedrao"/><br><sub><b>Pedro Antônio</b><br><b>✉️pafm@cesar.school</b></sub></a></td>
-    <td align="center"><a href="https://github.com/the-lazy-programmer"><img src="https://avatars.githubusercontent.com/the-lazy-programmer" width="100px;" alt="foto de joaozao"/><br><sub><b>João Marcelo</b><br><b>✉️jmpq@cesar.school</b></sub></a></td>
+    <td align="center">
+      <a href="https://github.com/BrunoBMayer">
+        <img src="https://avatars.githubusercontent.com/BrunoBMayer" width="100px;" alt="foto de Bruno Mayer"/>
+        <br>
+        <sub><b>Bruno Mayer</b></sub>
+      </a>
+      <br>
+      <sub><b>✉️ bbm@cesar.school</b></sub>
+    </td>
+    <td align="center">
+      <a href="https://github.com/lovepxdro">
+        <img src="https://avatars.githubusercontent.com/lovepxdro" width="100px;" alt="foto de Pedro Antônio"/>
+        <br>
+        <sub><b>Pedro Antônio</b></sub>
+      </a>
+      <br>
+      <sub><b>✉️ pafm@cesar.school</b></sub>
+    </td>
+    <td align="center">
+      <a href="https://github.com/the-lazy-programmer">
+        <img src="https://avatars.githubusercontent.com/the-lazy-programmer" width="100px;" alt="foto de João Marcelo"/>
+        <br>
+        <sub><b>João Marcelo</b></sub>
+      </a>
+      <br>
+      <sub><b>✉️ jmpq@cesar.school</b></sub>
+    </td>
   </tr>
 </table>
 
