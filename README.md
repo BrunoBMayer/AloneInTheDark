@@ -8,7 +8,12 @@ Você é Jonas, um autor de ficção científica, que misteriosamente acorda den
 O jogo rodará apenas em um terminal linux. Caso não tenha uma máquina com linux, use o replit.
 
 - 1 - Clone o repositório:
-      'https://github.com/BrunoBMayer/AloneInTheDark.git'
+  <div style="display: flex; align-items: center;">
+  <pre style="margin: 0; padding: 0.5em; background: #f0f0f0; border: 1px solid #ddd; border-radius: 5px;">
+    <code id="repo-url">https://github.com/BrunoBMayer/AloneInTheDark.git</code>
+  </pre>
+  <button onclick="copyToClipboard('repo-url')">Copiar</button>
+</div>
   
 - 2 - Compile o programa:
       'make'
