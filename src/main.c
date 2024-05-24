@@ -661,9 +661,11 @@ obst[3][15] = 1;
             movePoint(&x, &y, key, obst);
 
             if (x == 3 && y == 3 || x == 2 && y == 3) {
+
                 FILE * rank;
                 char str[501];
-                int pont;
+                int pont, i, j;
+                char cleaned_str[501];
 
                 screenClear();
                 sleep(1);
@@ -672,7 +674,7 @@ obst[3][15] = 1;
                 printf("Parabéns! Você conseguiu sair do labirinto!");
                 screenUpdate();
 
-                rank = fopen("/home/linux/Área de Trabalho/Projeto PIF/AloneInTheDark/RANKING.txt", "a");
+                rank = fopen("RANKING.txt", "a");
                 screenGotoxy(30, 13);
 
                 printf("Coloque o seu nome: ");
@@ -680,6 +682,13 @@ obst[3][15] = 1;
 
                 scanf("%s", str);
 
+                j = 0;
+                for (i = 0; str[i] != '\0'; i++) {
+                    if (str[i] != 'w' && str[i] != 'W') {
+                    cleaned_str[j++] = str[i];
+        }
+    }
+                    cleaned_str[j] = '\0';
 
                 if(contM < 0){
 
@@ -692,7 +701,7 @@ obst[3][15] = 1;
                 }
 
                 fseek(rank, 0, SEEK_END);
-                fprintf(rank, "%s\t\t%d\n", str, pont);
+                fprintf(rank, "%s\t\t%d\n", cleaned_str, pont);
                 fclose(rank);
 
                 sleep(1); // Atraso de 2 segundos
