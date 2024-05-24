@@ -667,15 +667,20 @@ obst[3][15] = 1;
 
                 screenClear();
                 sleep(1);
+                
                 screenGotoxy(30, 12);
                 printf("Parabéns! Você conseguiu sair do labirinto!");
                 screenUpdate();
+
                 rank = fopen("/home/linux/Área de Trabalho/Projeto PIF/AloneInTheDark/RANKING.txt", "a");
                 screenGotoxy(30, 13);
+
                 printf("Coloque o seu nome: ");
                 screenGotoxy(30, 14);
+
                 scanf("%s", str);
-                
+
+
                 if(contM < 0){
 
                     pont = 0;
@@ -833,6 +838,9 @@ int tela_inicial(){
         screenDestroy();
         
         if(var == 2){
+            char *instructions = malloc(1000 * sizeof(char));
+
+
             screenDestroy();
             printf("_________                               ____.                                 __   \n");
             printf("\\_   ___ \\  ____   _____   ____        |    | ____   _________ _______    /\\  \\ \\  \n");
@@ -853,6 +861,7 @@ int tela_inicial(){
             printf("0 - Voltar para a tela inicial\n\n");
             printf("Digite a opção: ");
             scanf("%d", &var);
+            free(instructions);
         }
 
         if(var == 3){
@@ -881,6 +890,8 @@ int tela_inicial(){
         }
 
         if(var == 0){
+            int var = 0;
+            char *banner = malloc(800 * sizeof(char));
             
             screenDestroy();
             printf("       .__                          .__            __  .__                  .___             __    \n");
@@ -896,6 +907,8 @@ int tela_inicial(){
             printf("4 - Sair do jogo\n");
             printf("Digite a opção: ");
             scanf("%d", &var);
+
+            free(banner);
 
         }
 
