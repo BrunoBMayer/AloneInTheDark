@@ -25,6 +25,8 @@ void free_all_items(struct node * head);
 
 void print_obst(int obst[80][24], int *x, int *y);
 
+void RUN(int *x, int *y, int *w, int *z);
+
 int tela_inicial();
 
 int main() {
@@ -631,12 +633,12 @@ int main() {
     head->next->cordY = 3;
     head->next->type = 0;
     head->next->next = (struct node *)malloc(sizeof(struct node));
-    head->next->next->cordX = 63;
-    head->next->next->cordY = 4;
+    head->next->next->cordX = 63; //63
+    head->next->next->cordY = 4; //4
     head->next->next->type = 1;
     head->next->next->next = NULL;
 
-    int x = 34, y = 14, timer = 0, contM = 5, contS = 0, keyGet = 0;  // Posição inicial do ponto
+    int x = 34, y = 14, timer = 0, contM = 5, contS = 0, keyGet = 0, w = 34, z = 14, danger = 0;  // Posição inicial do ponto
 
     // Inicializa as bibliotecas
     screenInit(1);   // Inicializa a tela com bordas
@@ -725,6 +727,15 @@ int main() {
 
             }
 
+            if (danger == 1){
+
+                RUN(&x, &y, &w, &z);
+                screenGotoxy(w, z);
+                screenSetColor(RED, BLACK);
+                printf("¶");
+
+            }
+
             // Desenha o ponto na nova posição
             screenSetColor(WHITE, BLACK); // Define a cor do ponto para branco
             screenGotoxy(x, y);
@@ -732,25 +743,26 @@ int main() {
 
             screenGotoxy(50,1);
 
-            if(contM > 0 && contS >= 10){
+            if (danger == 0){
 
-                printf("0%d:%d", contM, contS);
+                if(contM > 0 && contS >= 10){
 
-            }else if(contM > 0 && contS < 10){
+                    printf("0%d:%d", contM, contS);
 
-                printf("0%d:0%d", contM, contS);
+                }else if(contM > 0 && contS < 10){
 
-            }else if(contM < 0){
+                    printf("0%d:0%d", contM, contS);
 
-                screenDestroy();
-                printf("  ___                         ___                     \n");
-                printf(" /  __/__    __   __    \\__  \\_  _ ____ \n");
-                printf("/   \\  _\\_  \\  /     \\/ _ \\    /   |   \\  \\/ // _ \\_  __ \\\n");
-                printf("\\    \\\\  \\/ _ \\|  Y Y  \\  _/   /    |    \\   /\\  _/|  | \\/\n");
-                printf(" \\__  (__  /_||  /\\_  >  \\___  /\\/  \\_  >_|   \n");
-                printf("        \\/     \\/      \\/     \\/           \\/          \\/       \n");
-                sleep(4);
-                break;
+                }else if(contM < 0){
+
+                    danger = 1;
+                }
+
+            }else if (danger == 1){
+
+                screenSetColor(RED, BLACK);
+                printf("RUN");
+
             }
             // Atualiza a tela
             screenUpdate();
@@ -887,6 +899,30 @@ void free_all_items(struct node * head){
 
 }
 
+void RUN(int *x, int *y, int *w, int *z){
+
+    if (*w > 1 && *w > *x){
+
+        (*w)--;
+
+    }else if (*w < 79 && *w < *x){
+
+        (*w)++;
+
+    }
+    
+    if (*z > 1 && *z > *y){
+
+        (*z)--;
+
+    }else if (*z < 23 && *z < *y){
+
+        (*z)++;
+
+    }
+
+}
+
 int tela_inicial(){
 
     int var;
@@ -918,10 +954,10 @@ int tela_inicial(){
             printf(" \\______  /\\____/|__|_|  /\\____/   \\________|\\____/\\___  (____  /__|      \\/  /_/  \n");
             printf("        \\/             \\/                         /_____/     \\/                    \n");
             printf("\n");
-            printf("▪️ Utilize as teclas W-A-S-D para mover o personagem pelos labiritnos.\n");
-            printf("▪️ Procure as lanternas para aumentar a área de visão do personagem.\n");
+            printf("▪️ Utilize as teclas W-A-S-D para mover o personagem pelo labirinto.\n");
+            printf("▪️ Procure a chave para poder desbloquear a saída.\n");
             printf("▪️ O contador ficará rodando durante cada labirinto, seu tempo refletirá na sua pontuação.\n");
-            printf("⚠️ Importante: Se a contagem chegar em 0 você perdeu o jogo. :( \n\n");
+            printf("⚠️ Importante: Se a contagem chegar em 0 você estará em grande perigo. \n\n");
             printf("Caso queira desistir no meio do jogo precione: ENTER\n");
             printf("\n");
             printf("1 - Iniciar o jogo\n");
