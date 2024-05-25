@@ -7,7 +7,6 @@
 
 struct node{
 
-    int level;
     int cordX;
     int cordY;
     int type;
@@ -20,9 +19,9 @@ void movePoint(int *x, int *y, char direction, int obst[80][24]);
 
 int obst[80][24];
 
-void print_item(int fase);
+void print_item(int fase, struct node * head, int *x, int *y);
 
-void free_all_item();
+void free_all_items(struct node * head);
 
 void print_obst(int obst[80][24], int *x, int *y);
 
@@ -619,7 +618,7 @@ int main() {
 
     obst[3][15] = 1;
 
-    //struct node * head = NULL;
+    struct node * head = NULL;
 
     int x = 34, y = 14, timer = 0, contM = 5, contS = 0, fase = 1;  // Posição inicial do ponto
 
@@ -651,6 +650,7 @@ int main() {
                 printf("\\    \\\\  \\/ _ \\|  Y Y  \\  _/   /    |    \\   /\\  _/|  | \\/\n");
                 printf(" \\__  (__  /_||  /\\_  >  \\___  /\\/  \\_  >_|   \n");
                 printf("        \\/     \\/      \\/     \\/           \\/          \\/       \n");
+                free_all_items(head);
                 sleep(4);
                 break;
             }
@@ -662,10 +662,25 @@ int main() {
 
                 screenClear();
                 screenGotoxy(30, 12);
-                printf("Mais um desafio o aguarda");
-                sleep(3);
+                printf("Ache a chave e desbloqueie a saída");
+                sleep(5);
                 x = 34;
                 y = 14;
+                obst[3][3] = 1;
+                obst[2][3] = 1;
+                head = (struct node *)malloc(sizeof(struct node));
+                head->cordX = 2;
+                head->cordY = 3;
+                head->type = 0;
+                head->next = (struct node *)malloc(sizeof(struct node));
+                head->next->cordX = 3;
+                head->next->cordY = 3;
+                head->next->type = 0;
+                head->next->next = (struct node *)malloc(sizeof(struct node));
+                head->next->next->cordX = 63;
+                head->next->next->cordY = 4;
+                head->next->next->type = 1;
+                head->next->next->next = NULL;
                 fase += 1;
 
             }else if ((x == 3 && y == 3 || x == 2 && y == 3) && fase == 2) {
@@ -710,7 +725,7 @@ int main() {
             screenClear();
 
             print_obst(obst, &x, &y);
-            //print_item(fase);
+            print_item(fase, head, &x, &y);
 
             // Desenha o ponto na nova posição
             screenSetColor(WHITE, BLACK); // Define a cor do ponto para branco
@@ -816,13 +831,61 @@ void print_obst(int obst[80][24], int *x, int *y){
     }
 }
 
-void print_item(int fase){
+void print_item(int fase, struct node * head, int *x, int *y){
+
+    struct node *n = head;
 
     if (fase == 2){
 
+        while(n != NULL){
+
+            if (n->type == 0){
+
+                if (abs(n->cordX - *x) <= 2 && abs(n->cordY - *y) <= 2) {
+                    screenGotoxy(n->cordX, n->cordY);
+                    screenSetColor(WHITE, BLACK);
+                    printf("🔒");
+                   
+                }
+
+            }
+            
+            if(n->next->next->type == 1){
+
+                if ((abs(n->next->next->cordX - *x) <= 2 && abs(n->next->next->cordX - *x) > 0) && (abs(n->next->next->cordY - *y) <= 2 && abs(n->next->next->cordY - *y) > 0)) {
+                    screenGotoxy(n->next->next->cordX, n->next->next->cordY);
+                    screenSetColor(WHITE, BLACK);
+                    printf("🗝️");
+                   
+                }else if(abs(n->next->next->cordX - *x) == 0 && abs(n->next->next->cordY - *y) == 0){
+
+                    free(n->next->next);
+                    free(n->next);
+                    free(n);
+
+                }
+
+            }
+
+        }
         
+    }
+
+}
+
+void free_all_items(struct node * head){
+
+    struct node * n = head;
+    struct node * temp = head;
+
+    while(n != NULL){
+
+        n = n->next;
+        free(temp);
+        temp = n;
 
     }
+
 
 }
 
