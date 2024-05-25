@@ -17,8 +17,6 @@ struct node{
 // Função para mover o ponto com base na entrada do teclado
 void movePoint(int *x, int *y, char direction, int obst[80][24]);
 
-void printText(char str[501]);
-
 int obst[80][24];
 
 int print_item(struct node * head, int *x, int *y);
@@ -698,7 +696,7 @@ int main() {
                 printf("Coloque o seu nome: ");
 
                 screenGotoxy(30, 14);
-                printText(str);
+                scanf("%s", str);
                 
                 j = 0;
 
@@ -730,7 +728,7 @@ int main() {
                 break;
             }
         }
-        
+
         if(timerTimeOver()){
             // Limpa a tela
             screenClear();
@@ -961,43 +959,6 @@ void RUN(int *x, int *y, int *w, int *z){
     }else if (*z < 23 && *z < *y){
 
         (*z)++;
-
-    }
-
-}
-
-void printText(char str[501]){
-
-    int i = 0;
-    char ch;
-
-    while(1){
-
-        ch = getchar();
-
-        if(ch == '\n' || ch == EOF){
-
-            str[i] = '\0';
-            break;
-
-        }else if (ch == '\b'){
-
-            if(i > 0){
-
-                i-= 1;
-                putchar('\b');
-                putchar(' ');
-                putchar('\b');
-
-            }
-
-        }else if (i < 500 && ch != 'w'){
-
-            str[i] = ch;
-            putchar(ch);
-            i += 1;
-
-        }
 
     }
 
