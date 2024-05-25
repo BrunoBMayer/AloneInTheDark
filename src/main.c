@@ -38,7 +38,7 @@ int main() {
     }
 
     screenGotoxy(1, 1);
-    printf("Maze of the Lost");
+    printf("Fuja do labirinto antes que o tempo acabe!!!");
 
     for(int i = 0; i < 80; i++){
         for(int j = 0; j < 24; j++){
@@ -633,12 +633,12 @@ int main() {
     head->next->cordY = 3;
     head->next->type = 0;
     head->next->next = (struct node *)malloc(sizeof(struct node));
-    head->next->next->cordX = 63; //63
+    head->next->next->cordX = 5; //63
     head->next->next->cordY = 4; //4
     head->next->next->type = 1;
     head->next->next->next = NULL;
 
-    int x = 34, y = 14, timer = 0, contM = 5, contS = 0, keyGet = 0, w = 34, z = 14, danger = 0;  // Posição inicial do ponto
+    int x = 34, y = 14, timer = 0, contM = 5, contS = 0, keyGet = 0, w = 75, z = 20, danger = 0;  // Posição inicial do ponto
 
     // Inicializa as bibliotecas
     screenInit(1);   // Inicializa a tela com bordas
@@ -732,7 +732,7 @@ int main() {
                 RUN(&x, &y, &w, &z);
                 screenGotoxy(w, z);
                 screenSetColor(RED, BLACK);
-                printf("¶");
+                printf("👹");
 
             }
 
@@ -819,7 +819,7 @@ void movePoint(int *x, int *y, char direction, int obst[80][24]) {
 void print_obst(int obst[80][24], int *x, int *y){
 
     screenGotoxy(1, 1);
-    printf("Maze of the Lost");
+    printf("Fuja do labirinto antes que o tempo acabe!!!");
 
     for(int i = 0; i < 80; i++){
         for(int j = 0; j < 24; j++){
