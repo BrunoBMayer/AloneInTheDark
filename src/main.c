@@ -660,7 +660,7 @@ int main() {
             char key = readch();
 
             // Verifica se a tecla Enter foi pressionada para encerrar o programa
-            if (key == '\n' || (w == x && z == y)) {
+            if (key == '\n') {
                 screenDestroy();
                 printf("  ___                         ___                     \n");
                 printf(" /  __/__    __   __    \\__  \\_  _ ____ \n");
@@ -719,6 +719,21 @@ int main() {
 
             print_obst(obst, &x, &y);
             keyGet = print_item(head, &x, &y);
+
+            if(w == x && z == y){
+
+                screenDestroy();
+                printf("  ___                         ___                     \n");
+                printf(" /  __/__    __   __    \\__  \\_  _ ____ \n");
+                printf("/   \\  _\\_  \\  /     \\/ _ \\    /   |   \\  \\/ // _ \\_  __ \\\n");
+                printf("\\    \\\\  \\/ _ \\|  Y Y  \\  _/   /    |    \\   /\\  _/|  | \\/\n");
+                printf(" \\__  (__  /_||  /\\_  >  \\___  /\\/  \\_  >_|   \n");
+                printf("        \\/     \\/      \\/     \\/           \\/          \\/       \n");
+                free_all_items(head);
+                sleep(4);
+                break;
+
+            }
 
             if (keyGet == 1){
 
