@@ -17,6 +17,8 @@ struct node{
 // Função para mover o ponto com base na entrada do teclado
 void movePoint(int *x, int *y, char direction, int obst[80][24]);
 
+void printText(char str[501]);
+
 int obst[80][24];
 
 int print_item(struct node * head, int *x, int *y);
@@ -685,7 +687,6 @@ int main() {
                 screenDestroy();
                 screenGotoxy(30, 12);
                 printf("Você sobreviveu");
-
                 screenUpdate();
                 rank = fopen("RANKING.txt", "a");
                 if(rank == NULL){
@@ -697,15 +698,19 @@ int main() {
                 printf("Coloque o seu nome: ");
 
                 screenGotoxy(30, 14);
-                scanf("%s", str);
+                printText(str);
                 
-                                j = 0;
+                j = 0;
+
                 for (i = 0; str[i] != '\0'; i++) {
-                    if (str[i] != 'w' && str[i] != 'W') {
+
+                    if (str[i] != 'w') {
                     cleaned_str[j++] = str[i];
-        }
-    }
-                    cleaned_str[j] = '\0';
+
+                    }
+                }
+
+                cleaned_str[j] = '\0';
 
                 if(contM < 0){
 
@@ -725,6 +730,7 @@ int main() {
                 break;
             }
         }
+        
         if(timerTimeOver()){
             // Limpa a tela
             screenClear();
@@ -955,6 +961,43 @@ void RUN(int *x, int *y, int *w, int *z){
     }else if (*z < 23 && *z < *y){
 
         (*z)++;
+
+    }
+
+}
+
+void printText(char str[501]){
+
+    int i = 0;
+    char ch;
+
+    while(1){
+
+        ch = getchar();
+
+        if(ch == '\n' || ch == EOF){
+
+            str[i] = '\0';
+            break;
+
+        }else if (ch == '\b'){
+
+            if(i > 0){
+
+                i-= 1;
+                putchar('\b');
+                putchar(' ');
+                putchar('\b');
+
+            }
+
+        }else if (i < 500 && ch != 'w'){
+
+            str[i] = ch;
+            putchar(ch);
+            i += 1;
+
+        }
 
     }
 
