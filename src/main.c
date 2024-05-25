@@ -864,10 +864,17 @@ int print_item(struct node * head, int *x, int *y){
             if (abs(n->cordX - *x) <= 2 && abs(n->cordY - *y) <= 2) {
                 screenGotoxy(n->cordX, n->cordY);
                 printf("🗝️");
-                
-            }else if(abs(n->cordX - *x) == 0 && abs(n->cordY - *y) == 0){
+
+            }
+    
+            if(abs(n->cordX - *x) == 0 && abs(n->cordY - *y) == 0){
+                int keyX = n->cordX;
+                int keyY = n->cordY;
                 
                 free_all_items(head);
+
+                screenGotoxy(keyX, keyY);
+                printf("♟️");
 
                 return 1;
 
