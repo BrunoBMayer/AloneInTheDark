@@ -6,7 +6,7 @@ Alone in the Dark é um jogo simples de labirinto às cegas. Desenvolvido como p
 
 # 📖LORE
 
-Você é Jonas, um autor de ficção científica, que misteriosamente acorda dentro de sua própria obra "Alone in the dark". Em sua obra, o protagonista acorda sem explicações dentro de uma caverna e precisa encontrar a saída para entender como ele foi parar ali, quem o colocou e o motivo.
+Você é Jonas, um autor de ficção científica, que misteriosamente acorda dentro de sua própria obra "Alone in the dark". Em sua obra, o protagonista acorda sem explicações dentro de uma caverna e precisa encontrar a saída para entender como ele foi parar ali, quem o colocou e o motivo. Mal ele sabe que um demônio habita aquela caverna...
 
 ---
 
@@ -48,6 +48,14 @@ O jogo rodará apenas em um terminal linux. Caso não tenha uma máquina com lin
 # 🎮COMO O JOGO FUNCIONA
 
 O jogador utilizará as teclas "w-a-s-d" para se locomover pelo labirinto. O tempo limite é de 5 minutos. Seu tempo será salvo em um ranking local de pontuações.
+
+## 🔑CHAVES
+
+A saída do labirinto está trancada, procure a chave para poder sair.
+
+## 😈DEMON
+
+Se o tempo acabar, um demônio irá te perseguir...
 
 ---
 
