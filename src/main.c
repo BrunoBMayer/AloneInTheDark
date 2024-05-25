@@ -38,7 +38,7 @@ int main() {
     }
 
     screenGotoxy(1, 1);
-    printf("Maze of the Lost");
+    printf("Encontre a chave e fuja!");
 
     for(int i = 0; i < 80; i++){
         for(int j = 0; j < 24; j++){
@@ -638,7 +638,7 @@ int main() {
     head->next->next->type = 1;
     head->next->next->next = NULL;
 
-    int x = 34, y = 14, timer = 0, contM = 0, contS = 15, keyGet = 0, w = 75, z = 20, danger = 0;  // Posição inicial do ponto
+    int x = 34, y = 14, timer = 0, contM = 5, contS = 0, keyGet = 0, w = 75, z = 20, danger = 0;  // Posição inicial do ponto
 
     // Inicializa as bibliotecas
     screenInit(1);   // Inicializa a tela com bordas
@@ -679,11 +679,13 @@ int main() {
             if ((x == 3 && y == 3) || (x == 2 && y == 3)) {
                 FILE * rank;
                 char str[501];
-                int pont;
+                int pont, i, j;
+                char cleaned_str[501];
 
                 screenDestroy();
                 screenGotoxy(30, 12);
                 printf("Você sobreviveu");
+
                 screenUpdate();
                 rank = fopen("RANKING.txt", "a");
                 if(rank == NULL){
@@ -693,8 +695,18 @@ int main() {
                 }
                 screenGotoxy(30, 13);
                 printf("Coloque o seu nome: ");
-                scanf("%500s", str);
+
+                screenGotoxy(30, 14);
+                scanf("%s", str);
                 
+                                j = 0;
+                for (i = 0; str[i] != '\0'; i++) {
+                    if (str[i] != 'w' && str[i] != 'W') {
+                    cleaned_str[j++] = str[i];
+        }
+    }
+                    cleaned_str[j] = '\0';
+
                 if(contM < 0){
 
                     pont = 0;
@@ -706,7 +718,7 @@ int main() {
                 }
 
                 fseek(rank, 0, SEEK_END);
-                fprintf(rank, "%s\t\t%d\n", str, pont);
+                fprintf(rank, "%s\t\t%d\n", cleaned_str, pont);
                 fclose(rank);
 
                 sleep(2); // Atraso de 2 segundos
@@ -839,7 +851,7 @@ void movePoint(int *x, int *y, char direction, int obst[80][24]) {
 void print_obst(int obst[80][24], int *x, int *y){
 
     screenGotoxy(1, 1);
-    printf("Maze of the Lost");
+    printf("Encontre a chave e fuja!");
 
     for(int i = 0; i < 80; i++){
         for(int j = 0; j < 24; j++){
