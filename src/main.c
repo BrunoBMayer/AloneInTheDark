@@ -38,7 +38,7 @@ int main() {
     }
 
     screenGotoxy(1, 1);
-    printf("Fuja do labirinto antes que o tempo acabe!!!");
+    printf("Maze of the Lost");
 
     for(int i = 0; i < 80; i++){
         for(int j = 0; j < 24; j++){
@@ -633,7 +633,7 @@ int main() {
     head->next->cordY = 3;
     head->next->type = 0;
     head->next->next = (struct node *)malloc(sizeof(struct node));
-    head->next->next->cordX = 5; //63
+    head->next->next->cordX = 63; //63
     head->next->next->cordY = 4; //4
     head->next->next->type = 1;
     head->next->next->next = NULL;
@@ -732,7 +732,7 @@ int main() {
                 RUN(&x, &y, &w, &z);
                 screenGotoxy(w, z);
                 screenSetColor(RED, BLACK);
-                printf("👹");
+                printf("¶");
 
             }
 
@@ -819,7 +819,7 @@ void movePoint(int *x, int *y, char direction, int obst[80][24]) {
 void print_obst(int obst[80][24], int *x, int *y){
 
     screenGotoxy(1, 1);
-    printf("Fuja do labirinto antes que o tempo acabe!!!");
+    printf("Maze of the Lost");
 
     for(int i = 0; i < 80; i++){
         for(int j = 0; j < 24; j++){
@@ -851,7 +851,6 @@ int print_item(struct node * head, int *x, int *y){
 
             if (abs(n->cordX - *x) <= 2 && abs(n->cordY - *y) <= 2) {
                 screenGotoxy(n->cordX, n->cordY);
-                screenSetColor(WHITE, BLACK);
                 printf("🔒");
 
                 n = n->next;
@@ -862,9 +861,8 @@ int print_item(struct node * head, int *x, int *y){
         
         if(n->type == 1){
 
-            if ((abs(n->cordX - *x) <= 2 && abs(n->cordX - *x) > 0) && (abs(n->cordY - *y) <= 2 && abs(n->cordY - *y) > 0)) {
+            if (abs(n->cordX - *x) <= 2 && abs(n->cordY - *y) <= 2) {
                 screenGotoxy(n->cordX, n->cordY);
-                screenSetColor(WHITE, BLACK);
                 printf("🗝️");
                 
             }else if(abs(n->cordX - *x) == 0 && abs(n->cordY - *y) == 0){
