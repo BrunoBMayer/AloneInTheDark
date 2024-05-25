@@ -718,8 +718,16 @@ int main() {
             printf("♟️");
 
             screenGotoxy(50,1);
-            printf("%2d:%2d", contM, contS);
-            if(contM < 0){
+
+            if(contM > 0 && contS >= 10){
+
+                printf("0%d:%d", contM, contS);
+
+            }else if(contM > 0 && contS < 10){
+
+                printf("0%d:0%d", contM, contS);
+
+            }else if(contM < 0){
 
                 screenDestroy();
                 printf("  ___                         ___                     \n");
