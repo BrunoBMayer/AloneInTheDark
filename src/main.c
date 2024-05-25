@@ -638,7 +638,7 @@ int main() {
     head->next->next->type = 1;
     head->next->next->next = NULL;
 
-    int x = 34, y = 14, timer = 0, contM = 1, contS = 15, keyGet = 0, w = 75, z = 20, danger = 0;  // Posição inicial do ponto
+    int x = 34, y = 14, timer = 0, contM = 0, contS = 15, keyGet = 0, w = 75, z = 20, danger = 0;  // Posição inicial do ponto
 
     // Inicializa as bibliotecas
     screenInit(1);   // Inicializa a tela com bordas
@@ -981,7 +981,7 @@ int tela_inicial(){
             printf("\n");
             printf("▪️ Utilize as teclas W-A-S-D para mover o personagem pelo labirinto.\n");
             printf("▪️ Procure a chave para poder desbloquear a saída.\n");
-            printf("▪️ O contador ficará rodando durante cada labirinto, seu tempo refletirá na sua pontuação.\n");
+            printf("▪️ Seu tempo refletirá na sua pontuação.\n");
             printf("⚠️ Importante: Se a contagem chegar em 0 você estará em grande perigo. \n\n");
             printf("Caso queira desistir no meio do jogo precione: ENTER\n");
             printf("\n");
