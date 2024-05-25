@@ -638,7 +638,7 @@ int main() {
     head->next->next->type = 1;
     head->next->next->next = NULL;
 
-    int x = 34, y = 14, timer = 0, contM = 5, contS = 0, keyGet = 0, w = 75, z = 20, danger = 0;  // Posição inicial do ponto
+    int x = 34, y = 14, timer = 0, contM = 1, contS = 15, keyGet = 0, w = 75, z = 20, danger = 0;  // Posição inicial do ponto
 
     // Inicializa as bibliotecas
     screenInit(1);   // Inicializa a tela com bordas
@@ -758,15 +758,20 @@ int main() {
 
             screenGotoxy(50,1);
 
-            if (danger == 0){
+            if (danger == 0) {
 
-                if(contM > 0 && contS >= 10){
-
-                    printf("0%d:%d", contM, contS);
-
-                }else if(contM > 0 && contS < 10){
-
-                    printf("0%d:0%d", contM, contS);
+            if (contM > 0) {
+                if (contS >= 10) {
+                printf("0%d:%d", contM, contS);
+                } else {
+                printf("0%d:0%d", contM, contS);
+                }
+             } else if (contM == 0) {
+                if (contS >= 10) {
+            printf("%d:%d", contM, contS);
+            } else {
+            printf("%d:0%d", contM, contS);
+            }
 
                 }else if(contM < 0){
 
