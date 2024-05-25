@@ -660,7 +660,7 @@ int main() {
             char key = readch();
 
             // Verifica se a tecla Enter foi pressionada para encerrar o programa
-            if (key == '\n') {
+            if (key == '\n' || (w == x && z == y)) {
                 screenDestroy();
                 printf("  ___                         ___                     \n");
                 printf(" /  __/__    __   __    \\__  \\_  _ ____ \n");
