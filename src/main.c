@@ -980,7 +980,7 @@ int tela_inicial(){
             printf("▪️ Procure a chave para poder desbloquear a saída.\n");
             printf("▪️ Seu tempo refletirá na sua pontuação.\n");
             printf("⚠️ Importante: Se a contagem chegar em 0 você estará em grande perigo. \n\n");
-            printf("Caso queira desistir no meio do jogo precione: ENTER\n");
+            printf("Caso queira desistir no meio do jogo pressione: ENTER\n");
             printf("\n");
             printf("1 - Iniciar o jogo\n");
             printf("3 - Pontuações salvas\n");
