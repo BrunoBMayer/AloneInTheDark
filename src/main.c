@@ -14,7 +14,6 @@ struct node{
 
 };
 
-// Função para mover o ponto com base na entrada do teclado
 void movePoint(int *x, int *y, char direction, int obst[80][24]);
 
 int obst[80][24];
@@ -48,25 +47,19 @@ int main() {
     }
 
 
-    // Mapa do primeiro labirinto
-
-    //Coluna extrema esquerda
     for (int i = 3; i <= 24; i++) {
         obst[1][i] = 1; 
     }
 
-    //Parte de baixo 
     for (int i = 2; i <= 79; i++) {
         obst[i][23] = 1; 
 
     }
 
- // Coluna extrema direita 
     for (int j = 3; j <= 23; j++) {
         obst[79][j] = 1; 
     }
 
-    // Coluna de cima 
     for (int i = 4; i <= 79; i++) {
         obst[i][3] = 1; 
     }
@@ -617,13 +610,14 @@ int main() {
     obst[4][22] = 1;
     obst[4][23] = 1;
 
-
     obst[3][15] = 1;
+
 
     struct node * head = NULL;
 
     obst[3][3] = 1;
     obst[2][3] = 1;
+
     head = (struct node *)malloc(sizeof(struct node));
     head->cordX = 2;
     head->cordY = 3;
@@ -633,33 +627,29 @@ int main() {
     head->next->cordY = 3;
     head->next->type = 0;
     head->next->next = (struct node *)malloc(sizeof(struct node));
-    head->next->next->cordX = 63; //63
-    head->next->next->cordY = 4; //4
+    head->next->next->cordX = 63;
+    head->next->next->cordY = 4; 
     head->next->next->type = 1;
     head->next->next->next = NULL;
 
-    int x = 34, y = 14, timer = 0, contM = 5, contS = 0, keyGet = 0, w = 75, z = 20, danger = 0;  // Posição inicial do ponto
+    int x = 34, y = 14, timer = 0, contM = 5, contS = 0, keyGet = 0, w = 75, z = 20, danger = 0;  
 
-    // Inicializa as bibliotecas
-    screenInit(1);   // Inicializa a tela com bordas
-    keyboardInit();  // Inicializa o teclado
-    timerInit(50);   // Inicializa o temporizador com um intervalo de 50 milissegundos
+    screenInit(1);   
+    keyboardInit();  
+    timerInit(50);   
 
-    // Desenha o ponto inicial na tela
-    screenSetColor(WHITE, BLACK); // Define a cor do ponto para branco
+    screenSetColor(WHITE, BLACK); 
     screenGotoxy(x, y);
     printf("♟️");
 
-    // Atualiza a tela
     screenUpdate();
 
-    // Loop principal do jogo
+
     while (1) {
-        // Captura a entrada do teclado
+        
         if (keyhit()) {
             char key = readch();
 
-            // Verifica se a tecla Enter foi pressionada para encerrar o programa
             if (key == '\n') {
                 screenDestroy();
                 printf("  ___                         ___                     \n");
@@ -673,7 +663,6 @@ int main() {
                 break;
             }
 
-            // Move o ponto com base na tecla pressionada
             movePoint(&x, &y, key, obst);
 
             if ((x == 3 && y == 3) || (x == 2 && y == 3)) {
@@ -724,13 +713,12 @@ int main() {
                 fprintf(rank, "%s\t\t%d\n", cleaned_str, pont);
                 fclose(rank);
 
-                sleep(2); // Atraso de 2 segundos
+                sleep(2); 
                 break;
             }
         }
 
         if(timerTimeOver()){
-            // Limpa a tela
             screenClear();
 
             print_obst(obst, &x, &y);
@@ -763,12 +751,11 @@ int main() {
                 RUN(&x, &y, &w, &z);
                 screenGotoxy(w, z);
                 screenSetColor(RED, BLACK);
-                printf("¶");
+                printf("👾");
 
             }
 
-            // Desenha o ponto na nova posição
-            screenSetColor(WHITE, BLACK); // Define a cor do ponto para branco
+            screenSetColor(WHITE, BLACK); 
             screenGotoxy(x, y);
             printf("♟️");
 
@@ -800,13 +787,9 @@ int main() {
                 printf("RUN");
 
             }
-            // Atualiza a tela
             screenUpdate();
-        
-
 
             timer += 50;
-
         }
 
         if (timer >= 1000){
@@ -821,10 +804,9 @@ int main() {
 
     }
 
-    // Finaliza as bibliotecas
-    keyboardDestroy(); // Finaliza o teclado
-    screenDestroy();   // Finaliza a tela
-    timerDestroy();    // Finaliza o temporizador
+    keyboardDestroy(); 
+    screenDestroy();   
+    timerDestroy();    
 
     return 0;
 }
@@ -832,19 +814,19 @@ int main() {
 void movePoint(int *x, int *y, char direction, int obst[80][24]) {
     switch (direction) {
         case 'a':
-            if ((*x > 1) && (obst[*x-1][*y] != 1)) // Verifica se não está na borda esquerda
+            if ((*x > 1) && (obst[*x-1][*y] != 1)) 
                 (*x)--;
             break;
         case 'd':
-            if ((*x < 79) && (obst[*x+1][*y] != 1)) // Largura da tela - 1 (80 colunas)
+            if ((*x < 79) && (obst[*x+1][*y] != 1)) 
                 (*x)++;
             break;
         case 'w':
-            if ((*y > 1) && (obst[*x][*y-1] != 1)) // Verifica se não está na borda superior
+            if ((*y > 1) && (obst[*x][*y-1] != 1)) 
                 (*y)--;
             break;
         case 's':
-            if ((*y < 23) && (obst[*x][*y+1] != 1)) // Altura da tela - 1 (24 linhas)
+            if ((*y < 23) && (obst[*x][*y+1] != 1)) 
                 (*y)++;
             break;
         default:
@@ -865,7 +847,6 @@ void print_obst(int obst[80][24], int *x, int *y){
             if (abs(i - *x) <= 2 && abs(j - *y) <= 2) {
                 screenGotoxy(i, j);
 
-                // Verifica se a célula atual é um obstáculo
                 if (obst[i][j] == 1) {
                     screenSetColor(WHITE, BLACK);
                     printf("⚜️");
