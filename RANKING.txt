@@ -1,3 +1,5 @@
 
 bruno		216
 pablo		130
+pamela      95
+breno		240

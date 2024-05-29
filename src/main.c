@@ -990,28 +990,35 @@ int tela_inicial(){
             scanf("%d", &var);
         }
 
-        if(var == 3){
-            FILE * rank;
-            char str[601];
-            screenDestroy();
-            
-            printf("----RANKING----\n");
-            while(fgets(str, sizeof(str), rank) != NULL){
-                
-                printf("%s", str);
+            if(var == 3){
+        FILE *rank;
+        char str[601];
+        screenDestroy();
 
-            }
+    
+        rank = fopen("RANKING.txt", "r");
+        
+            if(rank == NULL){
+        printf("Erro ao abrir o arquivo RANKING.txt\n");
+        return 1; 
+    }
 
-            printf("\n");
-            fclose(rank);
-            printf("1 - Iniciar o jogo\n");
-            printf("2 - Como jogar\n");
-            printf("4 - Sair do jogo\n");
-            printf("0 - Voltar para a tela inicial\n\n");
-            printf("Digite a opção: ");
-            scanf("%d", &var);
+    printf("----RANKING----\n");
+    while(fgets(str, sizeof(str), rank) != NULL){
+        printf("%s", str);
+    }
+    
+    printf("\n");
+    fclose(rank);
 
-        }
+    printf("1 - Iniciar o jogo\n");
+    printf("2 - Como jogar\n");
+    printf("4 - Sair do jogo\n");
+    printf("0 - Voltar para a tela inicial\n\n");
+    printf("Digite a opção: ");
+    scanf("%d", &var);
+}
+
 
         if(var == 0){
             
